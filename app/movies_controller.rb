@@ -65,7 +65,9 @@ def can_be_found_updated_and_saved
   # Updtate the title "Awesome Flick" to "Even Awesomer Flick"
   Movie.create(title: "Awesome Flick")
   movie = Movie.where("title = 'Awesome Flick'")
+  movie_id = Movie.where("title = 'Awesome Flick'").id
   movie.update(:title => "Even Awesomer Flick")
+
 end
 
 def can_update_using_update_method
