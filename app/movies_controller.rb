@@ -22,18 +22,14 @@ def can_be_created_with_a_hash_of_attributes
   movie = Movie.find_by(attributes)
 end
 
-def can_be_created_in_a_block(args = nil)
+def can_be_created_in_a_block(args =  { title: "Home Alone", release_date: 1990 })
   if args == nil
-    movie = Movie.create do |m|
-      m.title = "Home Alone"
-      m.release_date = 1990
-      return movie
-    end
+    movie = Movie.new
   else
     movie = Movie.new
     args.each {|k, v| movie.send("#{k}=", v)}
-    return movie
   end
+  movie
 end
 
 def can_get_the_first_item_in_the_database
