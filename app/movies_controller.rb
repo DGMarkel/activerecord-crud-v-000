@@ -66,7 +66,7 @@ def can_be_found_updated_and_saved
   Movie.create(title: "Awesome Flick")
   movie = Movie.where("title = 'Awesome Flick'")
   movie_id = Movie.where("title = 'Awesome Flick'").id
-  movie.update(:title => "Even Awesomer Flick")
+  movie.update(movie_id, :title => "Even Awesomer Flick")
 
 end
 
